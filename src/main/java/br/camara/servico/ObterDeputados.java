@@ -25,7 +25,7 @@ public class ObterDeputados {
 		
 		NodeList nList = e.getChildNodes();
 		
-		for (int i = 0; i < 1; i++) {
+		for (int i = 0; i < nList.getLength(); i++) {
 			
 			Node node = nList.item(i);
 			
@@ -58,6 +58,9 @@ public class ObterDeputados {
 						.item(0).getTextContent());
 				deputado.setEmail(eElement.getElementsByTagName("email")
 						.item(0).getTextContent());
+				
+				System.out.println("Consultado: " + eElement.getElementsByTagName("nomeParlamentar")
+				.item(0).getTextContent());
 				
 				List<DetalheDeputado> listaDetalhes = new ObterDetalhesDeputados().obterDetalhesDeputados(eElement.getElementsByTagName("ideCadastro")
 						.item(0).getTextContent());

@@ -48,7 +48,7 @@ public class Deputado {
 	@Column(name="email")
 	private String email;
 	
-	@OneToMany(cascade=CascadeType.ALL)
+	@OneToMany(cascade=CascadeType.ALL,mappedBy="id.idCadastro")
 	private List<DetalheDeputado> detalheDeputado;
 		
 

@@ -17,17 +17,30 @@ public class ObterDetalhesDeputados {
 	public List<DetalheDeputado> obterDetalhesDeputados(String idCadastro){
 		List<DetalheDeputado> listaDetalhes = new ArrayList<DetalheDeputado>();
 		
-		Deputados deputados = new Deputados();
-		DeputadosSoap soap = deputados.getDeputadosSoap();
+		Deputados deputados = null;
+		DeputadosSoap soap = null;
+		Element e = null;
 		
-		Element e = (Element) soap.obterDetalhesDeputado(idCadastro, "").getContent().get(0);
+		boolean b = true;
+		while(b){
+			try{
+				deputados = new Deputados();
+				soap = deputados.getDeputadosSoap();
+				e = (Element) soap.obterDetalhesDeputado(idCadastro, "").getContent().get(0);
+				b= false;
+			}catch(Exception ex){
+				System.out.println("Erro: " + ex.getMessage() + " || Tentando de novo...");
+				b= true;
+			}
+		}
+		
 		
 		NodeList nList = e.getChildNodes();
 		
 		for (int i = 0; i < nList.getLength(); i++) {
 			
 			Node node = nList.item(i);
-			System.out.println("Consultando Detalhes...");
+			System.out.println("-- Consultando Detalhes...");
 			
 			if(node.getNodeType() == Node.ELEMENT_NODE){
 				DetalheDeputado detalheDeputado = new DetalheDeputado();

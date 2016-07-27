@@ -19,8 +19,8 @@ public class DetalheDeputado {
 	private String nomeProfissao;
 	
 	
-//	private Partido partidoAtual;
-		
+	
+	
 
 	public DetalheDeputado_ID getId() {
 		return id;
