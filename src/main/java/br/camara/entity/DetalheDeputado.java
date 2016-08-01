@@ -3,6 +3,7 @@ package br.camara.entity;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity(name="detalhes_deputado")
@@ -18,7 +19,8 @@ public class DetalheDeputado {
 	@Column(name="nome_profissao")
 	private String nomeProfissao;
 	
-	
+	@OneToOne
+	private Partido partido;
 	
 	
 
@@ -46,13 +48,15 @@ public class DetalheDeputado {
 		this.nomeProfissao = nomeProfissao;
 	}
 
-//	public Partido getPartidoAtual() {
-//		return partidoAtual;
-//	}
-//
-//	public void setPartidoAtual(Partido partidoAtual) {
-//		this.partidoAtual = partidoAtual;
-//	}
+	public Partido getPartido() {
+		return partido;
+	}
+
+	public void setPartido(Partido partido) {
+		this.partido = partido;
+	}
+
+	
 	
 	
 

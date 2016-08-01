@@ -58,6 +58,10 @@ public class ObterDetalhesDeputados {
 				detalheDeputado.setNomeProfissao(eElement.getElementsByTagName("nomeProfissao")
 						.item(0).getTextContent());
 				
+				
+				
+//				detalheDeputado.setPartido(partido);
+				
 				detalheDeputado.setId(detalheDeputado_ID);
 				
 				listaDetalhes.add(detalheDeputado);
