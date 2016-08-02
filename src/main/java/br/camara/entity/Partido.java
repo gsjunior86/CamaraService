@@ -24,6 +24,18 @@ public class Partido {
 	@Column(name="data_extincao")
 	private String dataExtincao;
 	
+	
+	@Override
+	public boolean equals(Object obj) {
+		return obj instanceof Partido && ((Partido) obj).getIdPartido().equals(this.idPartido);
+	}
+	
+	@Override
+	public int hashCode() {
+		return this.idPartido.hashCode();
+	}
+	
+	
 	public String getIdPartido() {
 		return idPartido;
 	}

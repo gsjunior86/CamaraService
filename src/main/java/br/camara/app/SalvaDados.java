@@ -23,18 +23,20 @@ public class SalvaDados {
 		manager.getTransaction().begin();
 		
 		
-//		for(Partido partido : listaPartidos){
-//			manager.persist(partido);
-//		}
+		for(Partido partido : listaPartidos){
+			manager.persist(partido);
+		}
 		
+		manager.getTransaction().commit();
+		manager.getTransaction().begin();
 		
 		for(Deputado deputado: listaDeputados){
-			
 			manager.persist(deputado);
 		}
 		
 		
 		manager.getTransaction().commit();
+		
 		
 		manager.close();
 		factory.close();

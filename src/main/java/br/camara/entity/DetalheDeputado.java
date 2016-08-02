@@ -1,8 +1,12 @@
 package br.camara.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -19,10 +23,20 @@ public class DetalheDeputado {
 	@Column(name="nome_profissao")
 	private String nomeProfissao;
 	
-	@OneToOne
+	@OneToOne(cascade=CascadeType.MERGE)
 	private Partido partido;
 	
+	@OneToMany(cascade=CascadeType.MERGE, mappedBy="id")
+	private List<CargoComissoes> cargoComissoes;
 	
+
+	public List<CargoComissoes> getCargoComissoes() {
+		return cargoComissoes;
+	}
+
+	public void setCargoComissoes(List<CargoComissoes> cargoComissoes) {
+		this.cargoComissoes = cargoComissoes;
+	}
 
 	public DetalheDeputado_ID getId() {
 		return id;
