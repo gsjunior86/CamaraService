@@ -26,7 +26,7 @@ public class DetalheDeputado {
 	@OneToOne(cascade=CascadeType.MERGE)
 	private Partido partido;
 	
-	@OneToMany(cascade=CascadeType.MERGE, mappedBy="id")
+	@OneToMany(cascade={CascadeType.MERGE}, mappedBy="id")
 	private List<CargoComissoes> cargoComissoes;
 	
 

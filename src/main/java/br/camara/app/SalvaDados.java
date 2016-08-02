@@ -31,7 +31,7 @@ public class SalvaDados {
 		manager.getTransaction().begin();
 		
 		for(Deputado deputado: listaDeputados){
-			manager.persist(deputado);
+			manager.merge(deputado);
 		}
 		
 		

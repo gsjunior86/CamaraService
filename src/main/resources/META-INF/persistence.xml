@@ -31,6 +31,8 @@
 			
 			  <!--  atualiza o banco, gera as tabelas se for preciso -->
 			  <property name="hibernate.hbm2ddl.auto" value="validate" />
+			  
+			  <property name="hibernate.event.merge.entity_copy_observer" value="allow"/>
 			    
 			</properties>
 	
