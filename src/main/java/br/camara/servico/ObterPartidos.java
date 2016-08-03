@@ -8,8 +8,8 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import br.camara.entity.Partido;
-import br.camara.ws.Deputados;
-import br.camara.ws.DeputadosSoap;
+import br.camara.ws.deputados.Deputados;
+import br.camara.ws.deputados.DeputadosSoap;
 
 public class ObterPartidos {
 	

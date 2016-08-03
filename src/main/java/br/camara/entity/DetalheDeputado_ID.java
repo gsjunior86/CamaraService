@@ -18,6 +18,17 @@ public class DetalheDeputado_ID implements Serializable {
 	
 	@Column(name="num_legislatura")
 	private int numLegislatura;
+	
+	@Override
+	public boolean equals(Object obj) {
+		return obj instanceof DetalheDeputado_ID  && ( ((DetalheDeputado_ID) obj).getIdCadastro() == this.idCadastro
+				&& ((DetalheDeputado_ID) obj).getNumLegislatura() == this.numLegislatura);
+	}
+	
+	@Override
+	public int hashCode() {
+		return this.idCadastro + this.numLegislatura;
+	}
 
 	public int getIdCadastro() {
 		return idCadastro;

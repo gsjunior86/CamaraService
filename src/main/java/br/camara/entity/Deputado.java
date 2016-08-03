@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -48,7 +49,7 @@ public class Deputado {
 	@Column(name="email")
 	private String email;
 	
-	@OneToMany(cascade=CascadeType.ALL,mappedBy="id.idCadastro")
+	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,mappedBy="id.idCadastro")
 	private List<DetalheDeputado> detalheDeputado;
 		
 

@@ -102,19 +102,40 @@
         <version>2.3</version>
         <executions>
           <execution>
-            <goals>
-              <goal>wsimport</goal>
-            </goals>
+          <id>deputados-service</id>
+		            <goals>
+		              <goal>wsimport</goal>
+		            </goals>
+		            
+		             <configuration>
+		          <!-- The name of your generated source package -->
+		          <packageName>br.camara.ws.deputados</packageName>
+		          <wsdlUrls>
+		          	<wsdlUrl>http://www.camara.leg.br/SitCamaraWS/Deputados.asmx?wsdl</wsdlUrl>
+		          </wsdlUrls>
+		        </configuration>
           </execution>
+          
+          <execution>
+          <id>orgaos-service</id>
+		            <goals>
+		              <goal>wsimport</goal>
+		            </goals>
+		            
+		        <configuration>
+		          <!-- The name of your generated source package -->
+		          <packageName>br.camara.ws.orgaos</packageName>
+		          <wsdlUrls>
+		          	<wsdlUrl>http://www.camara.leg.br/SitCamaraWS/Orgaos.asmx?wsdl</wsdlUrl>
+		          </wsdlUrls>
+		        </configuration>
+          </execution>
+          
         </executions>
-        <configuration>
-          <!-- The name of your generated source package -->
-          <packageName>br.camara.ws</packageName>
-          <wsdlUrls>
-          	<wsdlUrl>http://www.camara.leg.br/SitCamaraWS/Deputados.asmx?wsdl</wsdlUrl>
-          </wsdlUrls>
-        </configuration>
+       
      </plugin>
+     
+
      
      
      <plugin>

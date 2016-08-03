@@ -7,12 +7,12 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import br.camara.entity.CargoComissoes;
 import br.camara.entity.DetalheDeputado;
 import br.camara.entity.DetalheDeputado_ID;
 import br.camara.entity.Partido;
-import br.camara.ws.Deputados;
-import br.camara.ws.DeputadosSoap;
+import br.camara.ws.deputados.Deputados;
+import br.camara.ws.deputados.DeputadosSoap;
+
 
 public class ObterDetalhesDeputados {
 	
@@ -69,39 +69,6 @@ public class ObterDetalhesDeputados {
 				
 				detalheDeputado.setId(detalheDeputado_ID);
 				
-				List<CargoComissoes> listaCargoComissao = new ArrayList<CargoComissoes>();
-				
-				NodeList nListCargoComissao = eElement.getElementsByTagName("cargosComissoes");	
-				
-				for(int x = 0; x < nListCargoComissao.getLength(); x++){
-					CargoComissoes cc = new CargoComissoes();
-					Node n = nListCargoComissao.item(x);
-					if(node.getNodeType() == Node.ELEMENT_NODE){
-						Element el = (Element) n;
-						
-						if(el.getFirstChild() != null){
-							cc.setIdComissao(Integer.parseInt(el.getElementsByTagName("idOrgaoLegislativoCD")
-									.item(0).getTextContent()));
-							cc.setNomeComissao(el.getElementsByTagName("nomeComissao")
-									.item(0).getTextContent());
-							cc.setSiglaComissao(el.getElementsByTagName("siglaComissao")
-									.item(0).getTextContent());
-							cc.setNomeCargo(el.getElementsByTagName("siglaComissao")
-									.item(0).getTextContent());
-							cc.setDataEntrada(el.getElementsByTagName("dataEntrada")
-									.item(0).getTextContent());
-							cc.setDataSaida(el.getElementsByTagName("dataSaida")
-									.item(0).getTextContent());
-							
-							cc.setId(detalheDeputado_ID);
-							
-							listaCargoComissao.add(cc);
-						}
-					}
-					
-				}
-				
-				detalheDeputado.setCargoComissoes(listaCargoComissao);
 				
 				listaDetalhes.add(detalheDeputado);
 			}

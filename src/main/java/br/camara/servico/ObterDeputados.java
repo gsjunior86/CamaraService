@@ -9,8 +9,9 @@ import org.w3c.dom.NodeList;
 
 import br.camara.entity.Deputado;
 import br.camara.entity.DetalheDeputado;
-import br.camara.ws.Deputados;
-import br.camara.ws.DeputadosSoap;
+import br.camara.ws.deputados.Deputados;
+import br.camara.ws.deputados.DeputadosSoap;
+
 
 public class ObterDeputados {
 	
